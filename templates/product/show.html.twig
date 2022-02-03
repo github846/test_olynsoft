@@ -21,7 +21,11 @@
             </tr>
             <tr>
                 <th>CreationDate</th>
-                <td>{{ product.creationDate ? product.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ModifiedDate</th>
+                <td>{{ product.updatedAt ? product.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>

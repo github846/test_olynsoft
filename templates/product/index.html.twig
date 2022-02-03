@@ -11,7 +11,8 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Price</th>
-                <th>CreationDate</th>
+                <th>Created</th>
+                <th>Updated</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,7 +22,8 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.creationDate ? product.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ product.updatedAt ? product.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('product_show', {'id': product.id}) }}" class="btn btn-primary">show</a>
                     <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-primary">edit</a>

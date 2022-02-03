@@ -4,10 +4,15 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
 {
+    use TimestampableEntity;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -18,9 +23,6 @@ class Product
 
     #[ORM\Column(type: 'float')]
     private $price;
-
-    #[ORM\Column(type: 'datetime')]
-    private $creationDate;
 
     public function getId(): ?int
     {
@@ -47,18 +49,6 @@ class Product
     public function setPrice(float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function getCreationDate(): ?\DateTimeInterface
-    {
-        return $this->creationDate;
-    }
-
-    public function setCreationDate(\DateTimeInterface $creationDate): self
-    {
-        $this->creationDate = $creationDate;
 
         return $this;
     }
